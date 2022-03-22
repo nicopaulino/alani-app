@@ -1,9 +1,13 @@
 import './App.css';
 import React, {useState} from "react";
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Results({ resultsArray, setResultsArray }) {
+  
+  const navigate = useNavigate();
   
 
   return (
@@ -15,7 +19,11 @@ function Results({ resultsArray, setResultsArray }) {
             })}
             </div>
             <Button
-              onClick={() => window.location.reload()}
+              onClick={() => {
+                navigate('/');
+                window.location.reload();
+                }
+              }
             >
               Try Again
             </Button>

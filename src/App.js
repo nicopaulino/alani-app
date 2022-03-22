@@ -1,7 +1,12 @@
 import './App.css';
 import React, {useState} from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Quiz from './Quiz';
 import Results from './Results';
+import Intro from './Intro';
+import Header from './Header';
+import Encouragement from './Encouragement';
+
 
 function App() {
   
@@ -9,26 +14,30 @@ function App() {
   const [answersArray, setAnswersArray] = useState([]);
   const [choicesArray, setChoicesArray] = useState([]);
   const [resultsArray, setResultsArray] = useState([]);
-  const [flag, setFlag] = useState(true)
 
 
   return (
-    resultsArray.length === 0 ? 
-    <Quiz
-    questionNumber={questionNumber}
-    setQuestionNumber={setQuestionNumber}
-    answersArray={answersArray}
-    choicesArray={choicesArray}
-    resultsArray={resultsArray}
-    setResultsArray={setResultsArray}
-    setFlag={setFlag}
-    />
-    :
-    <Results
-    resultsArray={resultsArray}
-    setResultsArray={setResultsArray}
-    />
-    
+    <BrowserRouter>
+      <header>
+        <Header></Header>
+      </header>
+      <Routes>
+        <Route path="/" element={<Intro/>} />
+        <Route path="/encouragement" element={<Encouragement/>} />
+        <Route path="quiz" element={<Quiz
+        questionNumber={questionNumber}
+        setQuestionNumber={setQuestionNumber}
+        answersArray={answersArray}
+        choicesArray={choicesArray}
+        resultsArray={resultsArray}
+        setResultsArray={setResultsArray}
+        />} />
+        <Route path="results" element={<Results
+        resultsArray={resultsArray}
+        setResultsArray={setResultsArray}
+        />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
