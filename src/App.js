@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
+import Quiz from './Quiz';
+import Results from './Results';
 
 function App() {
+  
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const [answersArray, setAnswersArray] = useState([]);
+  const [choicesArray, setChoicesArray] = useState([]);
+  const [resultsArray, setResultsArray] = useState([]);
+  const [flag, setFlag] = useState(true)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    resultsArray.length === 0 ? 
+    <Quiz
+    questionNumber={questionNumber}
+    setQuestionNumber={setQuestionNumber}
+    answersArray={answersArray}
+    choicesArray={choicesArray}
+    resultsArray={resultsArray}
+    setResultsArray={setResultsArray}
+    setFlag={setFlag}
+    />
+    :
+    <Results
+    resultsArray={resultsArray}
+    setResultsArray={setResultsArray}
+    />
+    
   );
 }
 
