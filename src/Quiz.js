@@ -1,8 +1,9 @@
 import './App.css';
 import React, {useState} from "react";
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
-function Quiz({  questionNumber, setQuestionNumber, answersArray, choicesArray, resultsArray, setResultsArray, setFlag  }) {
+function Quiz({  questionNumber, setQuestionNumber, answersArray, choicesArray, resultsArray, setResultsArray }) {
   
 
   const questionContainer = [
@@ -96,6 +97,9 @@ function Quiz({  questionNumber, setQuestionNumber, answersArray, choicesArray, 
     }
   ]
 
+  const navigate = useNavigate();
+
+
   const resultsCalculator = (restaurants) => {
     restaurants = restaurants.flat()
     let result = [];
@@ -126,6 +130,8 @@ function Quiz({  questionNumber, setQuestionNumber, answersArray, choicesArray, 
       console.log("SUBMITTING")
       resultsCalculator(choicesArray);
       // setFlag(false);
+      navigate('/results');
+
     }
   }
     
