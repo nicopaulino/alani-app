@@ -9,12 +9,13 @@ function Header() {
 
 
   return (
-    <nav>
+    <nav className="header">
     <div>
         <div>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/encouragement'>Encouragement</NavLink>
-            <NavLink to='/quiz'>Hungry</NavLink>
+            <NavLink className="header-text" to='/'>Home</NavLink>
+            <NavLink className="header-text" to='/encouragement'>Encouragement</NavLink>
+            <NavLink className="header-text" to='/quiz'>Hungry</NavLink>
+            <NavLink className="header-text" to='/sloth'>Sloth</NavLink>
         </div>
     </div>
     </nav>
