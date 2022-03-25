@@ -6,6 +6,7 @@ import Results from './Results';
 import Intro from './Intro';
 import Header from './Header';
 import Encouragement from './Encouragement';
+import Sloth from './Sloth';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         resultsArray={resultsArray}
         setResultsArray={setResultsArray}
         />} />
+        <Route path="/sloth" element={<Sloth/>} />
       </Routes>
     </BrowserRouter>
   );
